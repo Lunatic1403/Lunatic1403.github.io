@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
+        <link rel="stylesheet" href="csstyles.css"/>
+        <title>1.1.2 Type of processor</title>
+    </head>
+
+    <body>
+
+        <iframe class="header" src="header.html" frameborder="0" scrolling="no"></iframe>
+
+        <div class="content">
+
+            <h2>1.1.2 Type of processor</h2>
+
+            <ul>
+                <span class="list-no-indent">The instruction set of a CPU is the list of instructions which it is able to decode</span><br>
+                <span class="list-no-indent">There are two main approaches to the architecture of processor:</span>
+                <li><strong>Reduced Instruction Set Computers</strong> (<strong>RISC</strong>)</li>
+                <ul>
+                    <li>These processors use simple instructions, which can be executed within a single clock cycle</li>
+                </ul>
+                <li><strong>Complex Instruction Set Computers</strong> (<strong>CISC</strong>)</li>
+                <ul>
+                    <li>These processors have a much larger instruction set than RISC processors, allowing more tasks to be accomplished by as few lines of assembly code as possible. However, as these instructions are more complex, they may take multiple FDE cycles to execute.</li>
+                </ul>    
+            </ul>
+            <table class="two-columns reduced-top-margin">
+                <tr>
+                    <th>RISC Processors</th>
+                    <th>CISC Processors</th>
+                </tr>
+                <tr>
+                    <td class="green-cell">All instructions executed within a single clock cycle</td>
+                    <td class="red-cell">Includes complex instructions which take many clock cycles</td>
+                </tr>
+                <tr>
+                    <td class="green-cell">Smaller instruction set means less transistors are needed, reducing required power and reducing costs to build</td>
+                    <td class="red-cell">Larger instruction set means more transistors are needed, increasing required power and increasing costs to build</td>
+                </tr>
+                <tr>
+                    <td class="green-cell">As instructions usually take a single clock cycle, pipelining can be used to increase processor efficiency</td>
+                    <td class="red-cell">As instructions may take multiple clock cycles, pipelining can't  be used to increase processor efficiency</td>
+                </tr>
+                <tr>
+                    <td class="red-cell">More memory required to store programs</td>
+                    <td class="green-cell">Less memory required to store programs</td>
+                </tr>
+                <tr>
+                    <td class="red-cell">Harder for programmers to write programs for (in assembly language), as more instructions need to be written and its assembly language isn't very similar to a high level language</td>
+                    <td class="green-cell">Easier for programmers to write programs for (in assembly language), as fewer instructions need to be written and its assembly language is closer to a high level language</td>
+                </tr>
+                <tr>
+                    <td class="red-cell final-row">Compiler needs to do more work to translate high level code into machine code (as code needs to be broken down into very simple instructions)</td>
+                    <td class="green-cell final-row">Compiler needs to do less work to translate high level code into machine code (as code can be broken down into more complex instructions)</td>
+                </tr>
+            </table>
+            
+        </div>
+
+    </body>
+
+</html>

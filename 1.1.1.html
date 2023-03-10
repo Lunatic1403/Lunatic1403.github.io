@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, inital-scale=1.0"/>
+        <link rel="stylesheet" href="csstyles.css"/>
+        <title>1.1.1 Structure and function of the processor</title>
+    </head>
+
+    <body>
+
+        <iframe class="header" src="header.html" frameborder="0" scrolling="no"></iframe>
+
+        <div class="content">
+            
+            <h2>1.1.1 Structure and function of the processor</h2>
+            
+            <ul>
+                <span class="list-no-indent">The <strong>central processing unit</strong> (<strong>CPU</strong>) has many components to allow it to perform its task of executing instruction, including:</span>
+                <li>arithmetic logic unit (ALU)</li>
+                <li>control unit (CU)</li>
+                <li>registers</li>
+                <li>buses</li>
+            </ul>
+
+            <ul>
+                <span class="list-no-indent">The <strong>arithmetic logic unit</strong> (<strong>ALU</strong>) performs arithmetic and logical operations on data. It can:</span>
+                <li>perform mathematical operations (add, subtract, multiply, divide) on numbers</li>
+                <li>perform shift operations (moving bits right/left in a register)</li>
+                <li>carry out Boolean logic operations, comparing 2 values and using operators like AND, OR, NOT, XOR</li>
+            </ul>
+            
+            <ul>
+                <span class="list-no-indent">The <strong>control unit</strong> is responsible for:</span>
+                <li>controlling the fetch-decode-execute cycle</li>
+                <li>managing the execution of instructions by  managing control signals to other parts of the computer</li>
+                <li>synchronising the computer's actions, using the inbuilt clock</li>
+            </ul>
+
+            <ul>
+                <span class="list-no-indent"><strong>Registers</strong> are special memory cells which operate at high speed, and are where all arithmetic, logical and shift operations occur. There are several special-purpose registers:</span>
+                <li><strong>program counter</strong> (<strong>PC</strong>) - holds the address of the next instruction to be executed</li>
+                <li><strong>accumulator</strong> (<strong>ACC</strong>) - stores the results of calculations (performed by ALU)</li>
+                <li><strong>memory address register</strong> (<strong>MAR</strong>) - holds the address of a location that is to be read from or written to</li>
+                <li><strong>memory data register</strong> (<strong>MDR</strong>) - temporarily stores data read from/written to memory</li>
+                <li><strong>current instruction register</strong> (<strong>CIR</strong>) - holds the current instruction being executed </li>
+            </ul>
+
+            <ul>
+                <span class="list-no-indent"><strong>Buses</strong> are a set of parallel wires, connecting 2 or more components within the CPU to allow the transmission of data. The three important ones are:</span>
+                <li><strong>data bus</strong> - transports data and instructions between components</li>
+                <li><strong>address bus</strong> - carries the address of the memory location being read from/written to to the memory</li>
+                <li><strong>control bus</strong> - transmits control signals between components, and ensures operations are synchronised.  The control bus coordinates the use of the address and data buses by different components and provides status information between system components</li>
+                <span class="list-intro">The data and control bus are bi-directional (signals can be carried in both directions), but the address bus is unidirectional (the CPU sends addresses to the memory, but never receives any).</span>
+            </ul>
+
+            <p>
+                <strong>Assembly language</strong> uses mnemonics to represent instructions, as a simplified way of representing machine code. Each instruction is divided into operand (data or memory address of data upon which the operation is to be performed) and opcode (the type of instruction that needs to be executed).
+            </p>
+
+            <ul>
+                <span class="list-no-indent">The <strong>fetch-decode-execute</strong> (<strong>FDE</strong>) <strong>cycle </strong>is the sequence of operations completed to execute an instruction. The cycle is repeated for each instruction that is executed.</span><br>
+                <span class="list-no-indent"><strong>Fetch Phase:</strong></span>
+                <li>memory address of next instruction copied from PC to MAR</li>
+                <li>read signal sent across control bus to memory; address from MAR sent across address bus</li>
+                <li>instruction at this address return to CPU along data bus and is copied into MDR</li>
+                <li>PC incremented (so it holds address of next instruction)</li>
+                <li>contents of MDR copied into CIR</li>
+                <span class="list-no-indent new-line"><strong>Decode Phase:</strong></span>
+                <li>contents of CIR sent to the CU to be decoded</li>
+                <li>instruction is split into opcode and operand</li>
+                <ul> 
+                    <li>opcode is used to determine the type of instruction, and what hardware to use to execute it</li>
+                    <li>operand holds either:</li>
+                    <ul>
+                        <li>the address of data to be used with the operation (then copied to MAR), or</li>
+                        <li>the actual data to be operated on (then copied to MDR)</li>
+                    </ul>
+                </ul>
+                <span class="list-no-indent new-line"><strong>Execute Phase:</strong></span>
+                <li>decoded instruction is executed (appropriate instruction/opcode is carried out on the operand)</li>
+            </ul>
+
+            <ul>
+                <span class="list-no-indent">There are a number of factors that affect the performance of the CPU, including <strong>clock speed</strong>, <strong>number of cores</strong> and the <strong>amount of cache memory:</strong></span>
+                <li>The <strong>clock speed</strong> of a processor (measured in hertz, Hz) is the number of fetch-decode-execute (FDE) cycles which it can perform each second. This speed is determined by the system clock, which generates signals which alternate between 0 and 1 and synchronises CPU operations, as each CPU operation begins as the clock changes from 0 to 1</li>
+                <ul>
+                    <li>The higher the clock speed, the more FDE cycles that can occur each second, so the better the performance of the CPU</li>
+                </ul>
+                <li>A <strong>core</strong> is an independent processor which can run its own FDE cycle.  A computer with multiple cores can complete multiple FDE cycles at a time</li>
+                <ul>
+                    <li>The more cores, the more FDE cycles can be executed at once, so the better the performance of the CPU. Theoretically, a dual-core processor should have twice the power of a single-core processor, but this isn't always the case as the software may not be able to take full advantage of both processors</li>
+                </ul>
+                <li><strong>Cache</strong> is very fast memory located within the CPU and holds data and instructions copied from main memory in case they are needed again soon. This saves the time that would be taken fetching them again from main memory. As it fills up, unused instructions and data still being held are replaced. There are different levels of cache, with level 1 being the smallest and closest to the CPU. Subsequent levels are larger and further from the CPU
+                <ul>
+                    <li>The more cache a computer has, the more data and instructions can be held in fast memory so performance is improved</li>
+                </ul>
+                </li>
+            </ul>
+
+            <p>
+                <strong>Pipelining</strong> is a process which can be used to improve the performance of a processor. Normally, all the steps in the FDE cycle would take place one after another. leaving some parts of the CPU idle. Pipelining prevents this - while one instruction is being executed, another is being decoded and another is fetched from memory. Appropriate data is kept in a buffer in close proximity to the CPU until it is required. This doesn’t work for code that branches (instructions that cause the execution of a different instruction sequence).   
+            </p>
+
+            <ul>
+                <span class="list-no-indent">A computer's <strong>architecture</strong> is the approach that is taken to its design.</span><br>
+                <span class="list-no-indent"><strong>Von Neumann architecture</strong> is based on the stored program concept, where machine code instructions are fetched and executed serially by a processor that performs arithmetic and logical operations.</span><br>
+                <span class="list-no-indent">Von Neumann architecture includes:</span>
+                <li>A single control unit</li>
+                <li>A single ALU</li>
+                <li>A single address, data and control bus</li>
+                <li>A single memory store for both instructions and data</li>
+                <li>A shared data bus for both instructions and data (prevents reading and writing at the same time)</li>
+            </ul>
+
+            <table class="two-columns">
+                <p class="table-caption">Harvard architecture is similar to Von Neumann architecture, but has physically separate memories for instructions and data, and has separate buses for instructions and data (allowing the CPU to read an instruction, and access data in the memory simultaneously, and also allows the use of pipelining).</p>
+                <tr>
+                    <th>Von Neumann Architecture</th>
+                    <th>Harvard Architecture</th>
+                </tr>
+                <tr>
+                    <td>Data and programs share memory</td>
+                    <td>Data and programs held in separate memory</td>
+                </tr>
+                <tr>
+                    <td>One bus used to transfer data and instructions</td>
+                    <td>Multiple parallel data and instruction buses used</td>
+                </tr>
+                <tr>
+                    <td>Cheaper to develop as the CU is easier to design</td>
+                    <td>More expensive to develop due to more complex design</td>
+                </tr>
+                <tr>
+                    <td>Slower execution (due to shared bus)</td>
+                    <td>Quicker execution (data & instructions fetched at same time)</td>
+                </tr>
+                <tr>
+                    <td class="final-row">Only a single, shared memory store (inefficient use of space)</td>
+                    <td class="final-row">Memories can vary in size, making efficient use of space</td>
+                </tr>
+            </table>
+            <p class="table-aftertext">
+                <strong>Contemporary processor architecture</strong> uses a combination of the above architectures, and are modified to deliver optimum performance and efficiency. 
+            </p>
+            
+        </div>
+
+    </body>
+
+</html>
